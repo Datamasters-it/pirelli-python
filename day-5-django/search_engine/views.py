@@ -39,4 +39,8 @@ def load_data_from_csv():
     csv_file = os.path.join(os.path.dirname(__file__), 'data', 'pokemon.csv')
     data = pd.read_csv(csv_file)
     for _, row in data.iterrows():
-        Pokemon.objects.get_or_create(name=row['name'], type=row['type1'])
+        Pokemon.objects.get_or_create(
+            name=row['name'], 
+            type=row['type1'],
+            hp=row['hp']
+        )
