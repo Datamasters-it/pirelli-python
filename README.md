@@ -74,3 +74,7 @@ La quinta giornata esplora il panorama dei framework per lo sviluppo web in Pyth
 - Containerizzazione di applicazioni
 - Deploy di applicazioni containerizzate
 - Cenni su TDD in Python
+
+
+## Survey finale di gradimento:
+https://forms.office.com/e/zrAZfSNK9n
