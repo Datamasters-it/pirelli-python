@@ -6,8 +6,8 @@ from typing import List, Optional
 from flask import Flask, render_template
 import uvicorn
 
-from pokemon.db import KNNSearchEngine
-from pokemon.models import PokemonResponse
+from application.pokemon.db import KNNSearchEngine
+from application.pokemon.models import PokemonResponse
 
 app = FastAPI()
 flask_app = Flask(__name__)
@@ -16,18 +16,18 @@ app.mount("/blog", WSGIMiddleware(flask_app))
 
 
 @flask_app.get("/")
-def blog_page():
+async def blog_page():
     return "Blog page"
 
 @flask_app.get("/about")
-def about_page():
+async def about_page():
     return "About page"
 
 
 
 
 @app.get("/")
-def read_root():
+async def read_root():
     return {"text": "YO!"}
 
 @app.get("/search", response_model=list[PokemonResponse])
@@ -35,7 +35,7 @@ async def search_pokemon(query: Optional[str] = None) -> list[PokemonResponse]:
     if not query:
         raise HTTPException(status_code=400, detail="Query parameter is required")
     # Inizializza il database dei Pokémon
-    model = KNNSearchEngine("pokemon/assets/pokemon.csv")
+    model = KNNSearchEngine("application/pokemon/assets/pokemon.csv")
     results = model(query)
     return results
 

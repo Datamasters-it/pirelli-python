@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 
-from .models import PokemonResponse
 
 class KNNSearchEngine:
     def __init__(self, data_path, features=["hp", "attack", "defense", "sp_atk", "sp_def", "speed" ], distance_function='euclidean'):
