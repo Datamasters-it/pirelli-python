@@ -48,8 +48,9 @@ INSTALLED_APPS = [
 
 ### 7. Esegui il Comando per Caricare i Pokémon
 
-Esegui il comando per caricare i dati dei Pokémon nel database:
+Esegui il comando per effettuare le migrazioni iniziali e caricare i dati dei Pokémon nel database:
 ```bash
+python manage.py migrate
 python manage.py load_pokemon_data
 ```
 
