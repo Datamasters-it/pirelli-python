@@ -5,8 +5,6 @@ from application.api import app as a
 
 client = TestClient(a)
 
-print(a)
-
 def test_read_root():
     response = client.get("/")
     assert response.status_code == 200
